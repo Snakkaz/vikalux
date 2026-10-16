@@ -101,9 +101,12 @@
   function updateCurrent() {
     var marker = window.scrollY + 96;
     var current = "";
+    var best = -1;
     sectionIds.forEach(function (id) {
       var section = document.getElementById(id);
-      if (section && section.offsetTop <= marker) current = id;
+      if (!section || section.offsetTop > marker || section.offsetTop < best) return;
+      best = section.offsetTop;
+      current = id;
     });
   navAnchors.forEach(function (anchor) {
     var href = anchor.getAttribute("href") || "";
