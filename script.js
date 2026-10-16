@@ -74,7 +74,8 @@
     setOpen(false);
   });
 
-  var desktop = window.matchMedia("(min-width: 769px)");
+  var navBreakpoint = parseInt(document.body.getAttribute("data-nav-breakpoint") || "769", 10);
+  var desktop = window.matchMedia("(min-width: " + navBreakpoint + "px)");
   function closeIfDesktop() {
     if (desktop.matches) setOpen(false);
   }
@@ -104,11 +105,13 @@
       var section = document.getElementById(id);
       if (section && section.offsetTop <= marker) current = id;
     });
-    navAnchors.forEach(function (anchor) {
-      var id = (anchor.getAttribute("href") || "").slice(1);
-      if (id && id === current) anchor.setAttribute("aria-current", "true");
-      else anchor.removeAttribute("aria-current");
-    });
+  navAnchors.forEach(function (anchor) {
+    var href = anchor.getAttribute("href") || "";
+    if (href.charAt(0) !== "#") return;
+    var id = href.slice(1);
+    if (id && id === current) anchor.setAttribute("aria-current", "true");
+    else anchor.removeAttribute("aria-current");
+  });
   }
 
   var ticking = false;
