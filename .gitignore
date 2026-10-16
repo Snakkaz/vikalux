@@ -1,2 +1,10 @@
-_preview/
+.preview/
 .DS_Store
+.env
+.env.*
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+credentials.json
+secrets.json
