@@ -1,0 +1,87 @@
+*,
+*::before,
+*::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  background: #f3efe8;
+  color: #1c1916;
+  font-family: Georgia, "Times New Roman", serif;
+}
+.board {
+  width: min(1080px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 64px 0 80px;
+}
+.eyebrow {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+h1 {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.lead {
+  max-width: 38rem;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #4d4741;
+  margin-bottom: 36px;
+}
+.feature {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 22px;
+  align-items: stretch;
+  min-height: 260px;
+  margin-bottom: 16px;
+  background: #0c0a08;
+  color: #f6efe4;
+  text-decoration: none;
+  border: 1px solid #c9a252;
+}
+.feature img { width: 100%; height: 100%; object-fit: cover; object-position: 18% center; }
+.feature div { padding: 22px 22px 22px 0; display: flex; flex-direction: column; gap: 10px; }
+.feature .num { color: #e8c27a; font-family: "Segoe UI", sans-serif; font-size: 0.75rem; letter-spacing: 0.16em; }
+.feature strong { font-size: clamp(2rem, 4vw, 3.1rem); font-weight: 500; }
+.feature span:last-child { margin-top: auto; color: #e6d7c3; font-family: "Segoe UI", sans-serif; font-size: 0.98rem; line-height: 1.45; }
+.feature:hover { transform: translateY(-3px); }
+.feature:focus-visible { outline: 2px solid #e8c27a; outline-offset: 3px; }
+.choices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.choice {
+  min-height: 280px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+.choice:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.choice .num { font-family: "Segoe UI", sans-serif; font-size: 0.75rem; letter-spacing: 0.16em; }
+.choice strong { font-size: 1.8rem; font-weight: 500; letter-spacing: -0.03em; }
+.choice span:last-child { font-family: "Segoe UI", sans-serif; font-size: 0.98rem; line-height: 1.45; margin-top: auto; }
+.choice-dark { background: #0e0c0a; color: #f3efe9; }
+.choice-dark .num { color: #c9a44c; }
+.choice-light { background: #fffcf8; color: #1e1a17; border-color: #e4ddd4; }
+.choice-light .num { color: #3e5c4d; }
+.choice-edit { background: #efe6d6; color: #141210; border: 2px solid #141210; }
+.choice-edit .num { color: #8e1e2d; }
+.choice:hover { transform: translateY(-3px); }
+@media (max-width: 800px) {
+  .feature { grid-template-columns: 1fr; min-height: 0; }
+  .feature img { height: 210px; }
+  .feature div { padding: 4px 18px 18px; }
+  .choices { grid-template-columns: 1fr; }
+  .choice { min-height: 180px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .choice:hover, .feature:hover { transform: none; }
+}
